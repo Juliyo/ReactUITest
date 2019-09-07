@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./components/App.js"
+import CommandManager from "./CommandManager.js"
 
-const Index = () => {
-  return <div>Hello React!</div>;
-};
+var SCREEN_SALEOPTION 		= "SCREEN_001_SALEOPTION";
 
-ReactDOM.render(<Index />, document.getElementById("index"));
+
+var command = new CommandManager();
+
+
+ReactDOM.render(<App />, document.getElementById("index"));
