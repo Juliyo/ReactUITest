@@ -1,4 +1,6 @@
 import Connection from "./Connection.js"
+import SceneManager from "./SceneManager.js"
+import ReactDynamicImport from "react-dynamic-import";
 
 export default class CommandManager
 {
@@ -49,17 +51,30 @@ export default class CommandManager
         if(message.length > 3)
         {
             var json = JSON.parse(message);
+            console.log(json);
+            //Cada escenario tendria un mapa con las variables de ese escenario
+            //Si llega un escenario nuevo vaciamos el mapa y rellenamos variables
+            //map["LINEA"]
 
             switch(json["order"])
             {
                 case this.PUTSCENE:
                 {
-                    debugger;
+                  
+                    const loader = () => import("./scene_components/" + json["scene"] + ".js");
+
+                    loader().then(success => {
+                        const SceneComponent = ReactDynamicImport({ loader });
+                        SceneManager.put_scene(SceneComponent, json["Parameters"]);
+                    }, error => { 
+                        console.log(error); 
+                    });
+
                     break;
                 }
                 case this.SETPARAM:
                 {
-                    debugger;
+                    //debugger;
                     break;
                 }
             }

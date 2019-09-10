@@ -1,12 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App.js"
 import CommandManager from "./CommandManager.js"
-
-var SCREEN_SALEOPTION 		= "SCREEN_001_SALEOPTION";
-
+import App from "./components/App.js"
+import ReactDynamicImport from "react-dynamic-import";
 
 var command = new CommandManager();
-
 
 ReactDOM.render(<App />, document.getElementById("index"));

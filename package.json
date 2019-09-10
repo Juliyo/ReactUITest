@@ -13,7 +13,8 @@
   "dependencies": {
     "babel-loader": "^8.0.6",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-dynamic-import": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
